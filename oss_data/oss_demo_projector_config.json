@@ -1,15 +1,15 @@
 {
     "embeddings": [
         {
-            "tensorPath": "oss_data/LFW_tensor.bytes",
+            "tensorPath": "oss_data/LFW_128_HA_tensor.bytes",
             "tensorShape": [
-                2921,
+                8405,
                 128
             ],
-            "metadataPath": "oss_data/LFW_labels.tsv",
+            "metadataPath": "oss_data/LFW_128_HA_labels.tsv",
             "tensorName": "LFW2Vec",
             "sprite": {
-                "imagePath": "oss_data/LFW_sprites.png",
+                "imagePath": "oss_data/LFW_HA_sprites.png",
                 "singleImageDim": [
                     28,
                     28

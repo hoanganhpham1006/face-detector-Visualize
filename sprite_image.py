@@ -1,10 +1,10 @@
 import numpy as np
 from scipy import misc
 from PIL import Image
-
+import pickle
+import cv2
 
 IMAGE_SIZE = 28
-PATH = "path_to_image_folder"
 
 
 def images_to_sprite(data):
@@ -44,12 +44,12 @@ def images_to_sprite(data):
 
 if __name__ == '__main__':
     data = []
-    with open(PATH) as f:
-        paths = f.read().split()
-        for path in paths:
-            img = misc.imread(path)
-            img = misc.imresize(img, (IMAGE_SIZE, IMAGE_SIZE, 3))
+    with open('/home/pham.hoang.anh/prj/face_detect/X_train_triplet.pkl', 'rb') as f:
+        X = pickle.load(f)
+    for x in X:
+            x = cv2.cvtColor(x, cv2.COLOR_BGR2RGB)        
+            img = misc.imresize(x, (IMAGE_SIZE, IMAGE_SIZE, 3))
             data.append(img)
     img_sprite = images_to_sprite(np.array(data))
     sprite = Image.fromarray(img_sprite.astype(np.uint8))
-    sprite.save("oss_data/sprites.png")
+    sprite.save("/home/pham.hoang.anh/prj/face_detect/visualize/128D-Facenet-LFW-Embedding-Visualisation/oss_data/LFW_HA_sprites.png")
